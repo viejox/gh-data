@@ -19,7 +19,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     outputs:
-      script-file: $${{ steps.publish.outputs.script-file }}
+      script-file: $${{ steps.publish.outputs.pepe }}
         
     steps:
       - name: Get code
@@ -30,7 +30,7 @@ jobs:
         run: npm run build
       - name: Publish js
         id: publish
-        run: find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
+        run: find dist/assets/*.js -type f -execdir echo 'pepe={}' >> $GITHUB_OUTPUT ';'
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
